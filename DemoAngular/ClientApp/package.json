@@ -27,6 +27,7 @@
     "devextreme": "21.2.8",
     "devextreme-angular": "21.2.8",
     "jquery": "^3.6.0",
+    "ngx-loading": "^8.0.0",
     "oidc-client": "~1.11.5",
     "popper.js": "^1.16.1",
     "rxjs": "^6.6.3"

@@ -3,6 +3,7 @@ import { Component, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './views/login/login.component';
@@ -14,8 +15,9 @@ import { Menu4Component } from './views/content-layout/menu4/menu4.component';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { HeaderMenuComponent } from './components/header-menu/header-menu.component';
 
+import { NgxLoadingModule } from 'ngx-loading';;
 import {
-  DxDataGridModule
+  DxDataGridModule, DxPopupModule
 } from 'devextreme-angular';
 
 @NgModule({
@@ -34,10 +36,12 @@ import {
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    NgxLoadingModule,
     DxDataGridModule,
+    DxPopupModule,
     RouterModule.forRoot([
       {
-        path: '', component: ContentLayoutComponent,
+        path: '', component: ContentLayoutComponent, canActivate: [AuthGuard],
         children: [
           {
             path: '', component: HomeComponent
