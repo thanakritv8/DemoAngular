@@ -1,0 +1,18 @@
+<!-- Start Menu -->
+<div class="scrollbar-sidebar">
+    <div class="app-sidebar__inner">
+        <input type="text" [(ngModel)]="txtSearch" />
+        <button (click)="onBtnClick()">Search</button>
+        <ul class="vertical-nav-menu" *ngFor="let menu of menus">
+            <li *ngIf="menu.parentId==null" class="app-sidebar__heading">{{menu.menuName}}</li>
+            <li *ngIf="menu.parentId!=null" class="nav-item" [routerLinkActive]="['link-active']" [routerLinkActiveOptions]="{ exact: true }">
+                <a [routerLink]="menu.route">
+                    <i [class]="menu.icon"></i>
+                    {{menu.menuName}}
+                </a>
+            </li>
+        </ul>
+
+    </div>
+</div>
+<!-- End Menu -->

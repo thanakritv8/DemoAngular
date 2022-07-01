@@ -1,0 +1,96 @@
+<!--<div class="app-header__logo">
+    <img style="width:80px; height:60px" src="assets/logo.png">
+    <div class="header__pane ms-auto">
+        <div>
+            <button type="button" class="hamburger close-sidebar-btn hamburger--elastic"
+                    data-class="closed-sidebar">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+        </div>
+    </div>
+</div>
+<div class="app-header__mobile-menu">
+    <div>
+        <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
+            <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+            </span>
+        </button>
+    </div>
+</div>
+<div class="app-header__menu">
+    <span>
+        <button type="button"
+                class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
+            <span class="btn-icon-wrapper">
+                <i class="fa fa-ellipsis-v fa-w-6"></i>
+            </span>
+        </button>
+    </span>
+</div>-->
+
+<div class="app-header header-shadow">
+    <div class="app-header__logo">
+        <img style="height: 45px" src="assets/logo.png" #logo>
+        <div class="header__pane ms-auto">
+            <div>
+                <button type="button" class="hamburger close-sidebar-btn hamburger--elastic"
+                        data-class="closed-sidebar" id="hamburger-menu" (click)="onClickHamburger(hamburger, appContainer, logo)" #hamburger>
+                    <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="app-header__mobile-menu">
+        <div>
+            <button id="sidebar-btn-mobile" type="button" class="hamburger hamburger--elastic mobile-toggle-nav" (click)="onClickMobileHamburger(mobileHamburger, appContainer)" #mobileHamburger>
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+        </div>
+    </div>
+    <div class="app-header__menu">
+        <span>
+            <button type="button"
+                    class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
+                <span class="btn-icon-wrapper">
+                    <i class="fa fa-ellipsis-v fa-w-6"></i>
+                </span>
+            </button>
+        </span>
+    </div>
+    <div class="app-header__content">
+        <div class="app-header-right">
+            <div class="header-btn-lg pe-0">
+                <div class="widget-content p-0">
+                    <div class="widget-content-wrapper" *ngIf="user!=null">
+                        <div class="widget-content-left">
+                            <div class="btn-group">
+                                <a data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
+                                    <img width="42" class="rounded-circle" [src]="user.pathImg" alt="" *ngIf="user.pathImg!=null">
+                                    <img width="42" class="rounded-circle" src="assets/profile.png" alt="" *ngIf="user.pathImg==null">
+                                    <i class="fa fa-angle-down ms-2 opacity-8"></i>
+                                </a>
+
+                                <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu">
+                                    <button type="button" tabindex="0" class="dropdown-item" (click)="onProfile()">Profile</button>
+                                    <button type="button" tabindex="0" class="dropdown-item" (click)="onLogout()">Logout</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="widget-content-left  ms-3 header-user-info">
+                            <div class="widget-heading"> {{user.username}} </div>
+                            <!--<div class="widget-subheading"> {{user.department}}/{{user.position}}</div>-->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

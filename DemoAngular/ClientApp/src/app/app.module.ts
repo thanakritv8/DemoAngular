@@ -1,31 +1,57 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
+import { LoginComponent } from './views/login/login.component';
+import { ContentLayoutComponent } from './views/content-layout/content-layout.component';
+import { HomeComponent } from './views/content-layout/home/home.component';
+import { Menu2Component } from './views/content-layout/menu2/menu2.component';
+import { Menu3Component } from './views/content-layout/menu3/menu3.component';
+import { Menu4Component } from './views/content-layout/menu4/menu4.component';
+import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
+import { HeaderMenuComponent } from './components/header-menu/header-menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavMenuComponent,
+    ContentLayoutComponent,
+    LoginComponent,
     HomeComponent,
-    CounterComponent,
-    FetchDataComponent
+    Menu2Component,
+    Menu3Component,
+    Menu4Component,
+    NavMenuComponent,
+    HeaderMenuComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
+      {
+        path: '', component: ContentLayoutComponent,
+        children: [
+          {
+            path: '', component: HomeComponent
+          },
+          {
+            path: 'home', component: HomeComponent
+          },
+          {
+            path: 'menu2', component: Menu2Component
+          },
+          {
+            path: 'menu3', component: Menu3Component
+          },
+          {
+            path: 'menu4', component: Menu4Component
+          }
+        ]
+      },
+      { path: 'login', component: LoginComponent }
     ])
   ],
   providers: [],
