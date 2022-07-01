@@ -14,6 +14,10 @@ import { Menu4Component } from './views/content-layout/menu4/menu4.component';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { HeaderMenuComponent } from './components/header-menu/header-menu.component';
 
+import {
+  DxDataGridModule
+} from 'devextreme-angular';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +34,7 @@ import { HeaderMenuComponent } from './components/header-menu/header-menu.compon
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    DxDataGridModule,
     RouterModule.forRoot([
       {
         path: '', component: ContentLayoutComponent,
