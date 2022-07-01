@@ -10,11 +10,6 @@ export class ContentLayoutComponent implements OnInit {
 
   ngOnInit() {
     
-    
-  }
-
-  onSearch(e) {
-    console.log(e);
   }
 
 }

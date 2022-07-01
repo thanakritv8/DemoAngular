@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { ParaService } from '../../services/para.service';
 
 @Component({
   selector: 'app-nav-menu',
@@ -8,8 +9,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class NavMenuComponent implements OnInit {
   menus: any;
   txtSearch: any;
-  @Output() onSearch = new EventEmitter();
-  constructor() { }
+  constructor(private para: ParaService) { }
 
   ngOnInit() {
     this.menus = [
@@ -66,7 +66,9 @@ export class NavMenuComponent implements OnInit {
   }
 
   onBtnClick() {
-    this.onSearch.emit(this.txtSearch);
+    this.para.txtSearch = {
+      'textSearch': this.txtSearch
+    };
   }
 
 }

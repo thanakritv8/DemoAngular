@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ParaService } from '../../../services/para.service';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   dataSource: any;
-  constructor() { }
+  txtSearch: any;
+  constructor(private para: ParaService) { }
 
   ngOnInit() {
     this.dataSource = [{
@@ -63,4 +65,12 @@ export class HomeComponent implements OnInit {
     }];
   }
 
+  ngDoCheck() {
+    
+    if (this.para.txtSearch !== undefined && this.para.txtSearch.textSearch !== undefined && this.txtSearch != this.para.txtSearch.textSearch) {
+      console.log(this.para.txtSearch.textSearch);
+      this.txtSearch = this.para.txtSearch.textSearch;
+
+    }
+  }
 }
